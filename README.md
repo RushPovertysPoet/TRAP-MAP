@@ -11,3 +11,10 @@ Every glyph, popup, and episode is canon-locked and sacred.
 - QR code navigation for immersive reader experience
 
 © GUTTER GANG / Underground Coalition. All rights reserved.
+• `styles.css`
+• `README.md`
+• `favicon.ico`
+• `qr-code.png`
+• `/glyphs/` folder
+• `/episodes/` folder
+• `/popups/` folder
