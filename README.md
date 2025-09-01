@@ -284,3 +284,45 @@ Canon layer deployed, R.U.S.H. Here’s your fully structured HTML layer for The
 </body>
 </html>
 `qr-code.png`
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The American Trap: Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body, html, #map { margin: 0; padding: 0; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([29.7604, -95.3698], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    const locations = [
+      { name: "Contingency 47 HQ", coords: [29.7604, -95.3698], color: "#FF0000" },
+      { name: "Neon Electro’s Lab", coords: [29.7499, -95.3584], color: "#00FFFF" },
+      { name: "Cipher’s Safehouse", coords: [29.7520, -95.3700], color: "#00FF00" },
+      { name: "Pastor Halo’s Chapel", coords: [29.7680, -95.3550], color: "#FFFF00" },
+      { name: "GUTTER GANG Outpost", coords: [29.7702, -95.3675], color: "#FFA500" },
+      { name: "Underground Coalition Vault", coords: [29.7655, -95.3601], color: "#800080" }
+    ];
+
+    locations.forEach(loc => {
+      L.circleMarker(loc.coords, {
+        radius: 8,
+        color: loc.color,
+        fillColor: loc.color,
+        fillOpacity: 0.8
+      }).addTo(map).bindPopup(`<b>${loc.name}</b>`);
+    });
+  </script>
+</body>
+</html>
